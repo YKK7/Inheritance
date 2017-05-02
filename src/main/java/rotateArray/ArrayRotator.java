@@ -1,7 +1,6 @@
 package rotateArray;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ArrayRotator<E> extends ArrayList{
 
@@ -23,9 +22,9 @@ public class ArrayRotator<E> extends ArrayList{
             test.add(Integer.toString(i));
         }
 
-        Scanner input = new Scanner(System.in);
-        System.out.print("\n\nEnter number of positions to rotate: ");
-        test.rotateArray(input.nextInt());
+        int num = (int)Math.round(Math.random() * 10);
+        System.out.print("\n\nRotating by a random number (" + num + "): \n");
+        test.rotateArray(num);
 
         for(int j = 0; j < test.size(); j++){
             System.out.print("[" + test.get(j) + "], ");
