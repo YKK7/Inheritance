@@ -5,11 +5,13 @@ import java.util.ArrayList;
 public class InventoryManager {
 
     private ArrayList<Product> products;
-    private double totalValue;
+
+    public InventoryManager(){
+        products = new ArrayList<Product>();
+    }
 
     public InventoryManager(ArrayList<Product> products) {
         this.products = products;
-        this.totalValue = this.findTotalValue();
     }
 
     public void addProduct(Product p){
@@ -33,4 +35,33 @@ public class InventoryManager {
         }
         return total;
     }
+
+    public void sellProduct(int id, int quantity){
+        for(int i = 0; i < products.size(); i++){
+            Product p = products.get(i);
+            if(p.getId() == id){
+                p.setQuantity(p.getQuantity() - quantity);
+            }
+        }
+    }
+
+    public void receiveShipment(int id, int quantity){
+        for(int i = 0; i < products.size(); i++){
+            Product p = products.get(i);
+            if(p.getId() == id){
+                p.setQuantity(p.getQuantity() + quantity);
+            }
+        }
+    }
+
+    public Product getProduct(String name) {
+        for(int i = 0; i < products.size(); i++){
+            Product p = products.get(i);
+            if(p.getName().equals(name)){
+                return p;
+            }
+        }
+        return null;
+    }
+
 }
