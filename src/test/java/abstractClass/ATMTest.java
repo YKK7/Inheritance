@@ -22,15 +22,13 @@ public class ATMTest {
         s = new SavingsAccount(100, 1349872, "Chris Kim", 1234, 50, 3);
         b = new BusinessAccount(800, 1817571239, "Zip Code Wilmington", 1234, 12345678, 500);
         atm = new ATM();
+        atm.addAccount(c);
+        atm.addAccount(s);
+        atm.addAccount(b);
     }
 
     @Test
     public void addAccountTest(){
-
-        //: When
-        atm.addAccount(c);
-        atm.addAccount(s);
-        atm.addAccount(b);
 
         //: Then
         assertEquals("There should be 3 accounts", 3, atm.getAccountsList().size());
@@ -39,12 +37,7 @@ public class ATMTest {
     @Test
     public void closeAccountTest(){
 
-        ATM atm = new ATM();
-
         //: When
-        atm.addAccount(c);
-        atm.addAccount(s);
-        atm.addAccount(b);
         atm.closeAccount(1817571239);
 
         //: Then
@@ -53,11 +46,6 @@ public class ATMTest {
 
     @Test
     public void loginTest(){
-
-        //: Given
-        atm.addAccount(c);
-        atm.addAccount(s);
-        atm.addAccount(b);
 
         //: When
         boolean result = atm.login(123456, 1234);
@@ -68,9 +56,7 @@ public class ATMTest {
 
     @Test
     public void getAccountTest(){
-        atm.addAccount(c);
-        atm.addAccount(s);
-        atm.addAccount(b);
+
 
         //: When
         Account result = atm.getAccount(123456);
@@ -82,10 +68,6 @@ public class ATMTest {
     @Test
     public void SavingsWithdrawalTest(){
 
-        atm.addAccount(c);
-        atm.addAccount(s);
-        atm.addAccount(b);
-
         //: When
         double result = atm.withdraw(1349872, 25);
 
@@ -96,10 +78,6 @@ public class ATMTest {
     @Test
     public void CheckingWithdrawalTest(){
 
-        atm.addAccount(c);
-        atm.addAccount(s);
-        atm.addAccount(b);
-
         //: When
         double result = atm.withdraw(123456, 25);
 
@@ -109,9 +87,6 @@ public class ATMTest {
 
     @Test
     public void BusinessWithdrawalTest(){
-        atm.addAccount(c);
-        atm.addAccount(s);
-        atm.addAccount(b);
 
         //: When
         double result = atm.withdraw(1817571239, 100);
@@ -122,9 +97,6 @@ public class ATMTest {
 
     @Test
     public void SavingsDepositTest(){
-        atm.addAccount(c);
-        atm.addAccount(s);
-        atm.addAccount(b);
 
         //: When
         double result = atm.deposit(1349872, 25);
@@ -135,9 +107,6 @@ public class ATMTest {
 
     @Test
     public void CheckingDepositTest(){
-        atm.addAccount(c);
-        atm.addAccount(s);
-        atm.addAccount(b);
 
         //: When
         double result = atm.deposit(123456, 25);
@@ -148,9 +117,6 @@ public class ATMTest {
 
     @Test
     public void BusinessDepositTest(){
-        atm.addAccount(c);
-        atm.addAccount(s);
-        atm.addAccount(b);
 
         //: When
         double result = atm.deposit(1817571239, 100);
