@@ -64,4 +64,7 @@ public class InventoryManager {
         return null;
     }
 
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
 }
