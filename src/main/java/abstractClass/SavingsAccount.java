@@ -12,6 +12,6 @@ public class SavingsAccount extends Account{
     }
 
     public double withdraw(double amount){
-
+        return 0;
     }
 }

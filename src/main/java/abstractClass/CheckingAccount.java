@@ -7,6 +7,11 @@ public class CheckingAccount extends Account{
     }
 
     public double withdraw(double amount){
-
+        if(amount < super.getBalance()){
+            super.setBalance(super.getBalance() - amount);
+        } else {
+            System.out.println("Insufficient funds. Balance = " + super.getBalance());
+        }
+        return super.getBalance();
     }
 }
