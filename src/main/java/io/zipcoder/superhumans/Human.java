@@ -1,4 +1,4 @@
-package superhumans;
+package io.zipcoder.superhumans;
 
 public class Human {
 

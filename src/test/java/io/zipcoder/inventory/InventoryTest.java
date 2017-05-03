@@ -1,7 +1,5 @@
-package classManager;
+package io.zipcoder.inventory;
 
-import classManager.InventoryManager;
-import classManager.Product;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

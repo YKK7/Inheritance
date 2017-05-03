@@ -1,8 +1,5 @@
-package abstractClass;
+package io.zipcoder.atm;
 
-import abstractClass.BusinessAccount;
-import abstractClass.CheckingAccount;
-import abstractClass.SavingsAccount;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

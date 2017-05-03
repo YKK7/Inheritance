@@ -1,4 +1,4 @@
-package abstractClass;
+package io.zipcoder.atm;
 
 public abstract class Account {
 

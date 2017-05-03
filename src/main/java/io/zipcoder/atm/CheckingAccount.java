@@ -1,4 +1,4 @@
-package abstractClass;
+package io.zipcoder.atm;
 
 public class CheckingAccount extends Account{
 

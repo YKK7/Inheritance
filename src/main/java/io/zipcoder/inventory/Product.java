@@ -1,4 +1,4 @@
-package classManager;
+package io.zipcoder.inventory;
 
 public class Product {
 

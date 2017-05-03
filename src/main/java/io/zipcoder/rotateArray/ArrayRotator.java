@@ -1,4 +1,4 @@
-package rotateArray;
+package io.zipcoder.rotateArray;
 
 import java.util.ArrayList;
 
