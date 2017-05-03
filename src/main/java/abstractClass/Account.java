@@ -20,16 +20,12 @@ public abstract class Account {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
+    public void setBalance(double amount){
+        balance = amount;
     }
 
     public double getInterestRate() {
         return interestRate;
-    }
-
-    public void setInterestRate(double interestRate) {
-        this.interestRate = interestRate;
     }
 
     public int getAccountNumber() {
@@ -40,16 +36,8 @@ public abstract class Account {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getPinNumber() {
         return pinNumber;
-    }
-
-    public void setPinNumber(int pinNumber) {
-        this.pinNumber = pinNumber;
     }
 
     public double deposit(double amount){

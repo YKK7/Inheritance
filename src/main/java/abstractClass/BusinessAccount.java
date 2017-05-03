@@ -12,6 +12,9 @@ public class BusinessAccount extends Account{
     }
 
     public double withdraw(double amount){
-        return 0;
+        if(amount > getBalance() - minBalance)
+            System.out.println("Insufficient funds. Balance = " + getBalance());
+        else setBalance(getBalance() - amount);
+        return getBalance();
     }
 }
