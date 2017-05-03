@@ -43,28 +43,35 @@ public class ATM{
     }
 
     public boolean login(int accountNumber, int pin){
-        
-        for(int i = 0; i < accountsList.size(); i++){
-            if(accountsList.get(i).getAccountNumber() == accountNumber && accountsList.get(i).getPinNumber() == pin) {
 
-                this.verified = true;
-            }
+        Account acct = getAccount(accountNumber);
+        if(acct.getPinNumber() == pin){
+            verified = true;
         }
         return verified;
-
     }
 
-    public void displayMenu(){
-
-
-    }
 
     public double withdraw(int acctNumber, double amount){
-        return 0;
+
+        Account acct = getAccount(acctNumber);
+        return acct.withdraw(amount);
     }
 
     public double deposit(int acctNumber, double amount){
-        return 0;
+
+        Account acct = getAccount(acctNumber);
+        return acct.deposit(amount);
+    }
+
+    public Account getAccount(int accountNumber){
+
+        for(int i = 0; i < accountsList.size(); i++){
+            if(accountsList.get(i).getAccountNumber() == accountNumber)
+                return accountsList.get(i);
+        }
+
+        return null;
     }
 
 }
