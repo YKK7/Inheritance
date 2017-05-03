@@ -1,3 +1,5 @@
+package classManager;
+
 import classManager.InventoryManager;
 import classManager.Product;
 import org.junit.Test;
