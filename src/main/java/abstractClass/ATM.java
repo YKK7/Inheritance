@@ -22,19 +22,17 @@ public class ATM{
         this.accountsList = accountsList;
     }
 
-    public ArrayList<Account> addAccount(Account acc){
+    public void addAccount(Account acc){
         accountsList.add(acc);
-        return accountsList;
     }
 
-    public ArrayList<Account> closeAccount(int accountNumber){
+    public void closeAccount(int accountNumber){
         for(int i = 0; i < accountsList.size(); i++){
             if(accountsList.get(i).getAccountNumber() == accountNumber) {
                 accountsList.remove(i);
                 break;
             }
         }
-        return accountsList;
     }
 
 
