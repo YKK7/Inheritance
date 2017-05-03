@@ -1,5 +1,6 @@
 package abstractClass;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -9,15 +10,22 @@ import static org.junit.Assert.assertTrue;
 
 public class ATMTest {
 
+    CheckingAccount c;
+    SavingsAccount s;
+    BusinessAccount b;
+    ATM atm;
+
+    @Before
+    public void initialize() {
+        //Given
+        c = new CheckingAccount(100, 123456, "Chris Kim", 1234);
+        s = new SavingsAccount(100, 1349872, "Chris Kim", 1234, 50, 3);
+        b = new BusinessAccount(800, 1817571239, "Zip Code Wilmington", 1234, 12345678, 500);
+        atm = new ATM();
+    }
+
     @Test
     public void addAccountTest(){
-
-        //: Given
-        CheckingAccount c = new CheckingAccount(100, 123456, "Chris Kim", 1234);
-        SavingsAccount s = new SavingsAccount(100, 123456, "Chris Kim", 1234, 50, 3);
-        BusinessAccount b = new BusinessAccount(700, 123456, "Zip Code Wilmington", 1234, 12345678, 500);
-
-        ATM atm = new ATM();
 
         //: When
         atm.addAccount(c);
@@ -30,11 +38,6 @@ public class ATMTest {
 
     @Test
     public void closeAccountTest(){
-
-        //: Given
-        SavingsAccount s = new SavingsAccount(100, 1349872, "Chris Kim", 1234, 50, 3);
-        CheckingAccount c = new CheckingAccount(100, 123456, "Chris Kim", 1234);
-        BusinessAccount b = new BusinessAccount(700, 1817571239, "Zip Code Wilmington", 1234, 12345678, 500);
 
         ATM atm = new ATM();
 
@@ -52,12 +55,6 @@ public class ATMTest {
     public void loginTest(){
 
         //: Given
-        SavingsAccount s = new SavingsAccount(100, 1349872, "Chris Kim", 1234, 50, 3);
-        CheckingAccount c = new CheckingAccount(100, 123456, "Chris Kim", 1234);
-        BusinessAccount b = new BusinessAccount(700, 1817571239, "Zip Code Wilmington", 1234, 12345678, 500);
-
-        ATM atm = new ATM();
-
         atm.addAccount(c);
         atm.addAccount(s);
         atm.addAccount(b);
@@ -70,14 +67,24 @@ public class ATMTest {
     }
 
     @Test
+    public void getAccountTest(){
+        atm.addAccount(c);
+        atm.addAccount(s);
+        atm.addAccount(b);
+
+        //: When
+        Account result = atm.getAccount(123456);
+
+        //: Then
+        assertEquals("getAccount should return the account in accountList", atm.getAccountsList().get(0), result);
+    }
+
+    @Test
     public void SavingsWithdrawalTest(){
 
-        //: Given
-        SavingsAccount s = new SavingsAccount(100, 1349872, "Chris Kim", 1234, 50, 3);
-        CheckingAccount c = new CheckingAccount(100, 123456, "Chris Kim", 1234);
-        BusinessAccount b = new BusinessAccount(700, 1817571239, "Zip Code Wilmington", 1234, 12345678, 500);
-
-        ATM atm = new ATM();
+        atm.addAccount(c);
+        atm.addAccount(s);
+        atm.addAccount(b);
 
         //: When
         double result = atm.withdraw(1349872, 25);
@@ -89,12 +96,9 @@ public class ATMTest {
     @Test
     public void CheckingWithdrawalTest(){
 
-        //: Given
-        SavingsAccount s = new SavingsAccount(100, 1349872, "Chris Kim", 1234, 50, 3);
-        CheckingAccount c = new CheckingAccount(100, 123456, "Chris Kim", 1234);
-        BusinessAccount b = new BusinessAccount(700, 1817571239, "Zip Code Wilmington", 1234, 12345678, 500);
-
-        ATM atm = new ATM();
+        atm.addAccount(c);
+        atm.addAccount(s);
+        atm.addAccount(b);
 
         //: When
         double result = atm.withdraw(123456, 25);
@@ -105,30 +109,22 @@ public class ATMTest {
 
     @Test
     public void BusinessWithdrawalTest(){
-
-        //: Given
-        SavingsAccount s = new SavingsAccount(100, 1349872, "Chris Kim", 1234, 50, 3);
-        CheckingAccount c = new CheckingAccount(100, 123456, "Chris Kim", 1234);
-        BusinessAccount b = new BusinessAccount(700, 1817571239, "Zip Code Wilmington", 1234, 12345678, 500);
-
-        ATM atm = new ATM();
+        atm.addAccount(c);
+        atm.addAccount(s);
+        atm.addAccount(b);
 
         //: When
         double result = atm.withdraw(1817571239, 100);
 
         //: Then
-        assertEquals("New balance should equal 600", 600, result, 0);
+        assertEquals("New balance should equal 700", 700, result, 0);
     }
 
     @Test
     public void SavingsDepositTest(){
-
-        //: Given
-        SavingsAccount s = new SavingsAccount(100, 1349872, "Chris Kim", 1234, 50, 3);
-        CheckingAccount c = new CheckingAccount(100, 123456, "Chris Kim", 1234);
-        BusinessAccount b = new BusinessAccount(700, 1817571239, "Zip Code Wilmington", 1234, 12345678, 500);
-
-        ATM atm = new ATM();
+        atm.addAccount(c);
+        atm.addAccount(s);
+        atm.addAccount(b);
 
         //: When
         double result = atm.deposit(1349872, 25);
@@ -139,13 +135,9 @@ public class ATMTest {
 
     @Test
     public void CheckingDepositTest(){
-
-        //: Given
-        SavingsAccount s = new SavingsAccount(100, 1349872, "Chris Kim", 1234, 50, 3);
-        CheckingAccount c = new CheckingAccount(100, 123456, "Chris Kim", 1234);
-        BusinessAccount b = new BusinessAccount(700, 1817571239, "Zip Code Wilmington", 1234, 12345678, 500);
-
-        ATM atm = new ATM();
+        atm.addAccount(c);
+        atm.addAccount(s);
+        atm.addAccount(b);
 
         //: When
         double result = atm.deposit(123456, 25);
@@ -156,13 +148,9 @@ public class ATMTest {
 
     @Test
     public void BusinessDepositTest(){
-
-        //: Given
-        SavingsAccount s = new SavingsAccount(100, 1349872, "Chris Kim", 1234, 50, 3);
-        CheckingAccount c = new CheckingAccount(100, 123456, "Chris Kim", 1234);
-        BusinessAccount b = new BusinessAccount(700, 1817571239, "Zip Code Wilmington", 1234, 12345678, 500);
-
-        ATM atm = new ATM();
+        atm.addAccount(c);
+        atm.addAccount(s);
+        atm.addAccount(b);
 
         //: When
         double result = atm.deposit(1817571239, 100);

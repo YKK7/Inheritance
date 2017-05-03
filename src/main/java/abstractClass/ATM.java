@@ -70,7 +70,6 @@ public class ATM{
             if(accountsList.get(i).getAccountNumber() == accountNumber)
                 return accountsList.get(i);
         }
-
         return null;
     }
 
