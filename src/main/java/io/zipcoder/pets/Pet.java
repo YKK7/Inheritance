@@ -15,8 +15,8 @@ public class Pet {
         this.name = name;
     }
 
-    public void speak(){
-        System.out.println("Hello");
+    public String speak(){
+        return "Hello";
     }
 }
 
@@ -27,8 +27,8 @@ class Dog extends Pet {
     }
 
     @Override
-    public void speak(){
-        System.out.println("Bark");
+    public String speak(){
+        return "Bark";
     }
 
 }
@@ -40,8 +40,8 @@ class Cat extends Pet {
     }
 
     @Override
-    public void speak(){
-        System.out.println("Meow");
+    public String speak(){
+        return "Meow";
     }
 
 }
@@ -52,8 +52,8 @@ class Pig extends Pet {
     }
 
     @Override
-    public void speak(){
-        System.out.println("Oink");
+    public String speak(){
+        return "Oink";
     }
 
 }
