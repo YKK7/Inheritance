@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class InventoryManager {
 
-    private ArrayList<Product> products;
+    private ArrayList<Product> products;//field
 
     public InventoryManager(){
         products = new ArrayList<Product>();

@@ -1,6 +1,6 @@
 package io.zipcoder.pets;
 
-public class Pet {
+public class Pet implements Comparable<Pet> {
     private String name;
 
     public Pet(String name) {
@@ -17,6 +17,10 @@ public class Pet {
 
     public String speak(){
         return "Hello";
+    }
+
+    public int compareTo(Pet o) {
+        return this.getName().compareTo(o.getName());
     }
 }
 

@@ -29,6 +29,8 @@ public class PetApp {
             Pet a = list.get(j);
             System.out.println("Pet" + (j + 1) + " is a " + a.getClass().getSimpleName() + " named " + a.getName() + ", and it likes to " + a.speak());
         }
+
+        System.out.println(list.get(0).compareTo(list.get(1)));
     }
 
 
