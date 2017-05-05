@@ -62,13 +62,14 @@ public class PetTest {
 
         //: Given
         Pet champ = new Dog("Champ");
-        Pet yeppi = new Cat("Yeppi");
+        Pet yeppi = new Cat("Champ");
+        PetComparator pc = new PetComparator();
 
         //: When
-        int actualResult = champ.compare(champ, yeppi);
+        int actualResult = pc.compare(champ, yeppi);
 
         //: Then
-        assertTrue(actualResult < 0);
+        assertTrue(actualResult > 0);
 
     }
 }

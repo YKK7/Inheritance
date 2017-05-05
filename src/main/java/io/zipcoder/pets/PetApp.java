@@ -1,6 +1,7 @@
 package io.zipcoder.pets;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class PetApp {
@@ -30,7 +31,10 @@ public class PetApp {
             System.out.println("Pet" + (j + 1) + " is a " + a.getClass().getSimpleName() + " named " + a.getName() + ", and it likes to " + a.speak());
         }
 
-        System.out.println(list.get(0).compareTo(list.get(1)));
+        Collections.sort(list, new PetComparator());
+        for (Pet p: list) {
+            System.out.println("Name: " + p.getName() + ", Type: " + p.getClass().getSimpleName());
+        }
     }
 
 

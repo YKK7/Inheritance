@@ -2,7 +2,7 @@ package io.zipcoder.pets;
 
 import java.util.Comparator;
 
-public class Pet implements Comparable<Pet>, Comparator<Pet>{
+public class Pet implements Comparable<Pet>{
     private String name;
 
     public Pet(String name) {
@@ -22,12 +22,13 @@ public class Pet implements Comparable<Pet>, Comparator<Pet>{
     }
 
     public int compareTo(Pet p) {
-        return this.getName().compareTo(p.getName());
+
+        if(this.getName().equals(p.getName())){
+            return this.getClass().getSimpleName().compareTo(p.getClass().getSimpleName());
+        } else return this.getName().compareTo(p.getName());
     }
 
-    public int compare(Pet p1, Pet p2) {
-        return p1.compareTo(p2);
-    }
+
 }
 
 class Dog extends Pet {
