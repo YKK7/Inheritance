@@ -41,4 +41,34 @@ public class PetTest {
         //Then
         assertEquals("Pigs typically oink", "Oink", actual);
     }
+
+    @Test
+    public void compareToTest(){
+
+        //: Given
+        Pet champ = new Dog("Champ");
+        Pet yeppi = new Cat("Yeppi");
+
+        //: When
+        int actualResult = champ.compareTo(yeppi);
+
+        //: Then
+        assertTrue(actualResult < 0);
+
+    }
+
+    @Test
+    public void compareTest(){
+
+        //: Given
+        Pet champ = new Dog("Champ");
+        Pet yeppi = new Cat("Yeppi");
+
+        //: When
+        int actualResult = champ.compare(champ, yeppi);
+
+        //: Then
+        assertTrue(actualResult < 0);
+
+    }
 }
